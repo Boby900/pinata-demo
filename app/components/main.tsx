@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { pinata } from "../../utils/config";
+import Image from "next/image";
 
 export default function Home() {
   const [file, setFile] = useState<File>();
@@ -19,7 +20,6 @@ export default function Home() {
       const keyRequest = await fetch("/api/key");
       const keyData = await keyRequest.json();
       const upload = await pinata.upload.file(file).key(keyData.JWT);
-      console.log(upload);
       const urlRequest = await fetch("/api/sign", {
         method: "POST",
         headers: {
@@ -27,13 +27,10 @@ export default function Home() {
         },
         body: JSON.stringify({ cid: upload.cid }),
       });
-      const urlText = await urlRequest.text();
-      console.log("Raw response from /api/sign:", urlRequest);
-    //   const url = JSON.parse(urlText); // Safely parse it after inspecting
-    //   console.log(url);
-    //   const url = await urlRequest.json();
-    //   console.log(url);
-    //   setUrl(url);
+      const url = await urlRequest.json();
+      console.log("Raw url from /api/sign:", url);
+      setUrl(url);
+
       setUploading(false);
     } catch (e) {
       console.log(e);
@@ -52,7 +49,11 @@ export default function Home() {
       <button disabled={uploading} onClick={uploadFile}>
         {uploading ? "Uploading..." : "Upload"}
       </button>
-      {url && <img src={url} alt="Image from Pinata" />}
+      {url ? (
+        <Image height={700} width={500} src={url} alt="Image" />
+      ) : (
+        <p>Loading image...</p>
+      )}
     </main>
   );
 }

@@ -1,18 +1,19 @@
 'use client'
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import Image from "next/image";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default function Nav() {
   return (
     <Navbar>
       <NavbarBrand>
-        {/* <AcmeLogo /> */}
+        <Image height={60} width={60} alt="logo" src={'/test.svg'} />
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
+          <Link color="foreground" href="/gallery">
+            Gallery
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
