@@ -1,8 +1,8 @@
 import Home from "./components/main";
 
 export default function Page() {
-  return <h1 className="text-center bg-slate-400 text-3xl font-mono">
-    Hello, Next.js!
+  return <h1 className="text-center text-3xl">
+   
     <Home />
   </h1>;
 }
