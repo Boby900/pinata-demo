@@ -1,8 +1,9 @@
 import { PinataSDK } from "pinata";
 
 const pinata = new PinataSDK({
-  pinataJwt: process.env.PINATA_JWT!,
-  pinataGateway: process.env.NEXT_PUBLIC_GATEWAY_URL,
+  pinataJwt: process.env.PINATA_JWT,
+  pinataGateway: process.env.NEXT_PUBLIC_GATEWAY_URL
+  
 });
 
 export default async function CreateGroup() {
@@ -34,6 +35,7 @@ export default async function CreateGroup() {
           <input
             name="data"
             type="text"
+            required
             className="w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
           />
         </div>
