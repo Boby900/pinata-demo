@@ -22,8 +22,8 @@ export default function Nav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link color="foreground" href="/group">
+            Group
           </Link>
         </NavbarItem>
       </NavbarContent>
