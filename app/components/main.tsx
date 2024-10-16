@@ -17,18 +17,13 @@ export default function Home() {
 
     try {
       setUploading(true);
-      try {
-        const groups = await pinata.groups.get({
-          groupId: "019284a8-2202-7e10-b799-6e74ace4b3da",
-        });
-        console.log("Groups fetched successfully:", groups);
-      } catch (e) {
-        console.error("Error fetching groups:", e);
-      }
+      const groupData = await fetch("/api/group")
+      const groupJson = await groupData.json(); // Await the Promise
+      console.log(groupJson.id);
       const keyRequest = await fetch("/api/key");
-      const keyData = await keyRequest.json();
+      const keyData = await keyRequest.json() 
 
-      const upload = await pinata.upload.file(file).key(keyData.JWT);
+      const upload = await pinata.upload.file(file).group(groupJson.id).key(keyData.JWT);
       const urlRequest = await fetch("/api/sign", {
         method: "POST",
         headers: {
@@ -37,7 +32,6 @@ export default function Home() {
         body: JSON.stringify({ cid: upload.cid }),
       });
       const url = await urlRequest.json();
-      console.log("Raw url from /api/sign:", url);
 
       setUrl(url);
 

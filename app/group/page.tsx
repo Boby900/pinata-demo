@@ -16,9 +16,6 @@ export default async function CreateGroup() {
       name: groupName.toUpperCase(),
       isPublic: publicValue?true:false,
     });
-
-    const groups = await pinata.groups.list()
-    console.log(groups) //:getting the name of all the groups
   }
 
   return (
