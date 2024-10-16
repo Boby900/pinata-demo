@@ -12,13 +12,12 @@ export default async function page() {
     const data = await pinata.gateways.get(
       "bafkreig327jhbrudr3ah64lx4nxh4yh5lvmhkcwmtfnxwzacfnky7fh2re"
     );
-    console.log(data);
 
     const url = await pinata.gateways.createSignedURL({
       cid: "bafkreig327jhbrudr3ah64lx4nxh4yh5lvmhkcwmtfnxwzacfnky7fh2re",
       expires: 1800,
     });
-    console.log(url);
+    
   } catch (error) {
     console.log(error);
   }
