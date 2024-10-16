@@ -12,3 +12,9 @@
 html{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
+}
