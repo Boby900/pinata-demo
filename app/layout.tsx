@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "./components/navbar";
 import { Providers } from "./providers";
+import { Toaster } from "@/components/ui/toaster";
 export default function RootLayout({
   children,
 }: {
@@ -12,7 +13,8 @@ export default function RootLayout({
       <body>
         <Providers>
           <Nav />
-          {children}       
+          {children}    
+          <Toaster />   
         </Providers>
       </body>
     </html>

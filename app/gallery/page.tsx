@@ -1,4 +1,4 @@
-"use client";
+
 //get the group images with filling the form and adding the group name, get their CID from that form and pass that down.
 import Image from "next/image";
 import { PinataSDK } from "pinata";
