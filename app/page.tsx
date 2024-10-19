@@ -1,5 +1,4 @@
-import Home from "./components/main";
-
+import Home from "@/components/main";
 export default function Page() {
   return <h1 className="text-center text-3xl">
    
