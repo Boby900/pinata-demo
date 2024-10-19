@@ -21,9 +21,12 @@
     "pinata": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-hook-form": "^7.53.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
+=======
+>>>>>>> origin/main
     "zod": "^3.23.8"
   },
   "devDependencies": {

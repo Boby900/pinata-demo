@@ -1,9 +1,31 @@
+<<<<<<< HEAD
 'use client'
 import handleSubmit from "./action";
 import { useToast } from "@/components/hooks/use-toast"
 //TODO: add a variant of success in our locally cloned repo, named UI, use-toast.
 export default function CreateGroup() {
  
+=======
+import { PinataSDK } from "pinata";
+
+const pinata = new PinataSDK({
+  pinataJwt: process.env.PINATA_JWT,
+  pinataGateway: process.env.NEXT_PUBLIC_GATEWAY_URL
+  
+});
+
+export default async function CreateGroup() {
+  async function handleSubmit(formData: FormData) {
+    "use server";
+    let groupName = formData.get("data") as string;
+    let publicValue = formData.get("visiblity") 
+    console.log("form submitted", groupName,publicValue);
+    const group = await pinata.groups.create({
+      name: groupName.toUpperCase(),
+      isPublic: publicValue?true:false,
+    });
+  }
+>>>>>>> origin/main
 
   const { toast } = useToast()
  
@@ -21,6 +43,7 @@ export default function CreateGroup() {
           <input
             name="data"
             type="text"
+            required
             className="w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
           />
         </div>
