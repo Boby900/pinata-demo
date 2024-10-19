@@ -1,7 +1,6 @@
 "use client";
-
+import { pinata } from "@/utils/config";
 import { useState } from "react";
-import { pinata } from "../../utils/config";
 import Image from "next/image";
 
 export default function Home() {
